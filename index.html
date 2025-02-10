@@ -7,163 +7,113 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1e2a38, #0d1117);
+            color: #ffffff;
             line-height: 1.6;
-        }
-        header {
-            background-color: #1f1f1f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            text-align: center;
             padding: 20px;
+        }
+
+        header {
+            padding: 20px 0;
             text-align: center;
         }
+
         header img {
             max-width: 100px;
-            margin-bottom: 10px;
-            border-radius: 50%;
+            margin-bottom: 20px;
+            border-radius: 50%; /* Сделать логотип круглым */
         }
+
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            color: #76c7c0;
+            font-size: 2.8rem;
+            font-weight: bold;
         }
+
         header p {
-            margin: 5px 0 0;
-            font-size: 1rem;
-            color: #bbbbbb;
-        }
-        .language-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .language-switch button {
-            background-color: #76c7c0;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: #121212;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .language-switch button:hover {
-            background-color: #5aa69e;
-        }
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        section h2 {
-            color: #76c7c0;
-            font-size: 1.8rem;
-        }
-        section p {
             margin: 10px 0;
+            font-size: 1.2rem;
+            color: #b3b3b3;
         }
+
         .cta {
-            text-align: center;
             margin-top: 30px;
         }
+
         .cta a {
+            display: inline-block;
             text-decoration: none;
-            color: #121212;
-            background-color: #76c7c0;
+            color: #ffffff;
+            background: linear-gradient(90deg, #76c7c0, #4c9e94);
             padding: 15px 30px;
-            border-radius: 5px;
+            border-radius: 12px;
             font-size: 1.2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
+
         .cta a:hover {
-            background-color: #5aa69e;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(90deg, #5aa69e, #3b7d74);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
         }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
         footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #1f1f1f;
+            margin-top: 50px;
             font-size: 0.9rem;
-            color: #777;
+            color: #7a7a7a;
         }
     </style>
-    <script>
-        function switchLanguage() {
-            const currentLang = document.documentElement.lang;
-            if (currentLang === 'ru') {
-                document.documentElement.lang = 'en';
-                document.title = 'Anonymous Solutions';
-                document.querySelector('header h1').innerText = 'Anonymous Solutions';
-                document.querySelector('header p').innerText = 'Efficiency. Confidentiality. Results.';
-                document.querySelectorAll('section h2')[0].innerText = 'Our Mission';
-                document.querySelectorAll('section h2')[1].innerText = 'Why Choose Us?';
-                document.querySelectorAll('section h2')[2].innerText = 'How We Work';
-                document.querySelectorAll('section h2')[3].innerText = 'Confidentiality Guarantee';
-                document.querySelectorAll('section p')[0].innerText = 'Welcome to "Anonymous Solutions", where technology meets professionalism to offer unparalleled support in recovering lost funds and mitigating the consequences of fraudulent actions. Our goal is to provide safe, effective, and confidential solutions.';
-                document.querySelectorAll('section p')[1].innerText = 'We tackle challenges others deem impossible, ensuring every client receives individualized care and protection.';
-                document.querySelector('.cta a').innerText = 'Contact Us';
-                document.querySelector('footer p').innerText = '© 2025 Anonymous Solutions. All rights reserved. Confidentiality is our guarantee.';
-            } else {
-                document.documentElement.lang = 'ru';
-                document.title = 'Анонимные Решения';
-                document.querySelector('header h1').innerText = 'Анонимные Решения';
-                document.querySelector('header p').innerText = 'Эффективность. Конфиденциальность. Результат.';
-                document.querySelectorAll('section h2')[0].innerText = 'Наша Миссия';
-                document.querySelectorAll('section h2')[1].innerText = 'Почему Мы?';
-                document.querySelectorAll('section h2')[2].innerText = 'Как Мы Работаем';
-                document.querySelectorAll('section h2')[3].innerText = 'Гарантия Конфиденциальности';
-                document.querySelectorAll('section p')[0].innerText = 'Добро пожаловать в "Анонимные Решения", где технологии встречаются с профессионализмом, чтобы предложить непревзойденную поддержку в возврате утраченных средств и устранении последствий мошеннических действий. Наша цель — обеспечить вам безопасные, эффективные и конфиденциальные решения.';
-                document.querySelectorAll('section p')[1].innerText = 'Мы решаем задачи, которые другие считают невозможными, гарантируя каждому клиенту индивидуальный подход и защиту.';
-                document.querySelector('.cta a').innerText = 'Связаться с нами';
-                document.querySelector('footer p').innerText = '© 2025 Анонимные Решения. Все права защищены. Конфиденциальность — наша гарантия.';
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Логотип Анонимных Решений">
+        <img src="logo.png" alt="Логотип">
         <h1>Анонимные Решения</h1>
         <p>Эффективность. Конфиденциальность. Результат.</p>
-        <div class="language-switch">
-            <button onclick="switchLanguage()">Switch Language</button>
-        </div>
     </header>
+    
     <main>
-        <section>
-            <h2>Наша Миссия</h2>
-            <p>Добро пожаловать в "Анонимные Решения", где технологии встречаются с профессионализмом, чтобы предложить непревзойденную поддержку в возврате утраченных средств и устранении последствий мошеннических действий. Наша цель — обеспечить вам безопасные, эффективные и конфиденциальные решения.</p>
-            <p>Мы решаем задачи, которые другие считают невозможными, гарантируя каждому клиенту индивидуальный подход и защиту.</p>
-        </section>
-        <section>
-            <h2>Почему Мы?</h2>
-            <p>Мы сочетаем конфиденциальность, техническую точность и преданность делу. Наша команда специализируется на возврате средств от подставных брокеров и мошеннических инвестиционных схем, используя связи с финансовыми учреждениями по всему миру.</p>
-            <p>В отличие от других сервисов, мы не требуем предоплаты. Все средства остаются под вашим контролем.</p>
-        </section>
-        <section>
-            <h2>Как Мы Работаем</h2>
-            <p>Наш процесс прост и эффективен:</p>
-            <ol>
-                <li><strong>Оставьте заявку:</strong> Используйте нашего защищённого бота для описания вашей ситуации.</li>
-                <li><strong>Анализ:</strong> Мы оцениваем возможность возврата средств в течение одного рабочего дня.</li>
-                <li><strong>Коммуникация:</strong> Обсуждаем детали и обеспечиваем прозрачность на каждом этапе.</li>
-                <li><strong>Исполнение:</strong> После вашего одобрения мы начинаем процесс возврата. Большинство случаев завершается в течение двух недель.</li>
-            </ol>
-        </section>
-        <section>
-            <h2>Гарантия Конфиденциальности</h2>
-            <p>Мы соблюдаем строгую конфиденциальность, используя собственные методы и технологии для защиты ваших данных. Ваше доверие — наша главная ценность.</p>
-        </section>
-        <section class="cta">
-            <h2>Сделайте Первый Шаг</h2>
-            <p>Готовы вернуть своё? Свяжитесь с нами уже сегодня и ощутите разницу с "Анонимными Решениями".</p>
+        <div class="card">
+            <h2>Добро пожаловать</h2>
+            <p>Мы предлагаем безопасные и профессиональные решения для возврата ваших средств. Доверьтесь нашему опыту и технологиям.</p>
+        </div>
+
+        <div class="cta">
             <a href="#">Связаться с нами</a>
-        </section>
+        </div>
     </main>
+
     <footer>
-        <p>&copy; 2025 Анонимные Решения. Все права защищены. Конфиденциальность — наша гарантия.</p>
+        <p>&copy; 2025 Анонимные Решения. Все права защищены.</p>
     </footer>
 </body>
 </html>
