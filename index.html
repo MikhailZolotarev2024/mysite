@@ -23,12 +23,14 @@
         header {
             padding: 20px 0;
             text-align: center;
+            position: relative;
+            width: 100%;
         }
 
         header img {
             max-width: 100px;
             margin-bottom: 20px;
-            border-radius: 50%; /* Сделать логотип круглым */
+            border-radius: 50%;
         }
 
         header h1 {
@@ -41,6 +43,59 @@
             margin: 10px 0;
             font-size: 1.2rem;
             color: #b3b3b3;
+        }
+
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 3px;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .menu-dropdown a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .menu-open .menu-dropdown {
+            display: block;
         }
 
         .cta {
@@ -93,9 +148,28 @@
             color: #7a7a7a;
         }
     </style>
+    <script>
+        function toggleMenu() {
+            const header = document.querySelector('header');
+            header.classList.toggle('menu-open');
+        }
+    </script>
 </head>
 <body>
     <header>
+        <div class="menu">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="menu-dropdown">
+                <a href="#">Юридический раздел</a>
+                <a href="#">О нас</a>
+                <a href="#">Проверка криптоактивов</a>
+                <a href="#">Связаться</a>
+            </div>
+        </div>
         <img src="logo.png" alt="Логотип">
         <h1>Анонимные Решения</h1>
         <p>Эффективность. Конфиденциальность. Результат.</p>
