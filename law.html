@@ -50,7 +50,61 @@
             text-align: center;
             padding: 20px;
         }
+.menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
 
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 3px;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            text-decoration: none;
+            color: #e0e0e0;
+            padding: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s, color 0.3s;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .menu-dropdown a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .menu-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .menu-open .menu-dropdown {
+            display: block;
+        }
         .container {
             max-width: 800px;
             width: 100%;
@@ -119,10 +173,55 @@
             background: rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
+		@media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .nav-links a {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                padding: 10px 0;
+                font-size: 1rem;
+            }
+
+            .menu {
+                top: 10px;
+                right: 10px;
+            }
+
+            .menu-dropdown {
+                right: 10px;
+            }
+        }
     </style>
+	<script>
+        function toggleMenu() {
+            const header = document.querySelector('header');
+            header.classList.toggle('menu-open');
+        }
+    </script>
 </head>
 <body>
     <header>
+	<div class="menu">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="menu-dropdown">
+			    <a href="index.html">Главная</a>
+                <a href="law.html">Юридический раздел</a>
+                <a href="#">О нас</a>
+                <a href="#">Проверка криптоактивов</a>
+                <a href="#">Связаться</a>
+            </div>
+        </div>
         <img src="logo.png" alt="Логотип">
         <h1>Анонимные Решения</h1>
         <h2>Юридический отдел</h2>
