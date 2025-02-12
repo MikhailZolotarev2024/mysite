@@ -49,7 +49,60 @@
             color: #b3b3b3;
             font-weight: 400;
         }
+  .news-widget {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: left;
+        }
 
+        .news-widget h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .news-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item a {
+            text-decoration: none;
+            color: #76c7c0;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .news-item a:hover {
+            color: #4c9e94;
+        }
+
+        .news-footer {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .news-footer a {
+            text-decoration: none;
+            color: #b3b3b3;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .news-footer a:hover {
+            color: #ffffff;
+        }
+    
         .menu {
             position: absolute;
             top: 20px;
@@ -73,8 +126,8 @@
         .menu-dropdown {
             display: none;
             position: absolute;
-            top: 60px;
-            right: 20px;
+            top: 25px;
+            right: 30px;
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -86,7 +139,7 @@
             display: block;
             text-decoration: none;
             color: #e0e0e0;
-            padding: 10px;
+            padding: 5px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: background 0.3s, color 0.3s;
             font-size: 1rem;
@@ -137,7 +190,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             max-width: 600px;
             width: 100%;
-            text-align: left;
+            text-align: center;
         }
 
         .card h2 {
@@ -159,7 +212,46 @@
             font-weight: 400;
             color: #7a7a7a;
         }
+        .expandable-section {
+             background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .expandable-header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            max-width: 600px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .expandable-body {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cccccc;
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .expandable-section.active .expandable-body {
+            max-height: 200px;
+            padding: 15px;
     </style>
+	<script>
+        function toggleSection(event) {
+            const section = event.currentTarget.parentElement;
+            section.classList.toggle('active');
+        }
+    </script>
     <script>
         function toggleMenu() {
             const header = document.querySelector('header');
@@ -186,12 +278,46 @@
         <h1>Анонимные Решения</h1>
         <p>Эффективность. Конфиденциальность. Результат.</p>
     </header>
-    
+     <div class="news-widget">
+        <h2>Последние новости</h2>
+        <div class="news-item">
+            <a href="#">Мы внедрили новую систему безопасности</a>
+        </div>
+        <div class="news-item">
+            <a href="#">Обновление платформы: новые функции</a>
+        </div>
+        <div class="news-item">
+            <a href="#">Запуск партнерской программы</a>
+        </div>
+        <div class="news-footer">
+            <a href="">Смотреть все новости</a>
+        </div>
+    </div>
     <main>
         <div class="card">
             <h2>Добро пожаловать</h2>
             <p>Мы предлагаем безопасные и профессиональные решения для возврата ваших средств. Доверьтесь нашему опыту и технологиям.</p>
         </div>
+<div class="expandable-section">
+            <div class="expandable-header" onclick="toggleSection(event)">Кто мы и чем занимаемся</div>
+            <div class="expandable-body">Мы – команда профессионалов, специализирующихся на возврате средств. Наша эффективность подтверждена доверием клиентов и успешными кейсами.</div>
+        </div>
+
+        <div class="expandable-section">
+            <div class="expandable-header" onclick="toggleSection(event)">Наши услуги</div>
+            <div class="expandable-body">Мы предоставляем широкий спектр услуг по возврату средств, анализу криптоактивов и юридической поддержке.</div>
+        </div>
+
+        <div class="expandable-section">
+            <div class="expandable-header" onclick="toggleSection(event)">Почему выбирают нас</div>
+            <div class="expandable-body">Мы гарантируем конфиденциальность, высокую скорость работы и надежность наших решений.</div>
+        </div>
+
+        <div class="expandable-section">
+            <div class="expandable-header" onclick="toggleSection(event)">Как связаться</div>
+            <div class="expandable-body">Свяжитесь с нами через наш сайт или мессенджеры, и мы оперативно ответим на ваш запрос.</div>
+        </div>
+
 
         <div class="cta">
             <a href="#">Связаться с нами</a>
